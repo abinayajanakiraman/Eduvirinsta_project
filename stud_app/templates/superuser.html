@@ -1,0 +1,47 @@
+{%extends 'base.html' %}
+{%block content%}
+    <button><a href="{% url 'login' %}">BACK</a></button>
+    
+    <div class="row">
+        <div class="col-sm-4">
+            <h4>Add new Admin</h4>
+            <form method="POST" action="">
+                {%csrf_token%}
+                {{form.as_p}}
+                <button type="submit">submit</button>
+            </form>
+        </div>
+    
+    <div class="col-sm-7 offset-1">
+        <h4 class="text-center alert alert-info">studadmin infor</h4>
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col">Name</th>
+                <th scope="col">Username</th>
+                <th scope="col">Password</th>
+                <th scope="col">School</th>
+                <th scope="col">RegNo</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+                {%for i in stu%}
+                <tr>
+                    <th scope="row">{{i.id}}</th>
+                    <td>{{i.name}}</td>
+                    <td>{{i.username}}</td>
+                    <td>{{i.password}}</td>
+                    <td>{{i.school}}</td>
+                    <td>{{i.Regno}}</td>
+                    <td><a href="{% url 'update_data' i.Regno %}" class="btn btn-warning btn-sm"> Update</a></td>
+                    <td><form action="{% url 'delete_data' i.Regno %}"method="POST" class="d-inline">{%csrf_token%}<input type="submit" class="btn btn-danger"value="Delete"></form></td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+</div>
+</div>
+{%endblock content%}

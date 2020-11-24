@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="margin-left: 25%;">
+    
+            <div style="font-size: 25px; color:red; margin-left:18%">Eduvirinsta</div><br><br>
+           <center style="border: 1px solid black; width:50% " >
+                <h1>login</h1>
+                <form action="" method="POST" >
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">Submit</button>
+                </form>
+            
+                <div class="Text-center">
+                    <p>username:admin,
+                        Password:123
+                    </p>
+                </div>
+            </center>
+            <ul>
+                <li>jobclass-1 superuser </li>
+                <li>jobclass-2 superAdmin </li>
+                <li>jobclass-3 Staff </li>
+                <li>jobclass-4 student </li>
+            </ul>
+</body>
+</html>
+
+
+

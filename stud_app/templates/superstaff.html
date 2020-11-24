@@ -1,0 +1,65 @@
+{% extends 'base4.html' %}
+{%block content%}
+<button><a href="{% url 'login' %}">BACK</a></button>
+<h1>Welcome {{ name }}</h1>
+<div class="row">
+  <div class="col-sm-4">
+      <h4 class="text-center alert alert-info">staff information</h4>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            
+            <th scope="col">Name</th>
+            <th scope="col">Std</th>
+            <th scope="col">Regno</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{staf_current.name}}</td>
+                <td>{{staf_current.stand}}</td>
+                <td>{{staf_current.Regno}}</td>
+            </tr>
+           
+        </tbody>
+    </table>
+
+  </div>
+<div class="col-sm-8">
+    <h4 class="text-center alert alert-info">student information</h4>
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <!-- <th scope="col"></th> -->
+            <th scope="col">Name</th>
+            <th scope="col">Std</th>
+            <th scope="col">Regno</th>
+            <th scope="col">Tamil</th>
+            <th scope="col">Science</th>
+            <th scope="col">Maths</th>
+            <th scope="col">social</th>
+            <th scope="col">English</th>
+            <th scope="col">update</th>
+          </tr>
+        </thead>
+        <tbody>
+            {%for i in Allstud%}
+            <tr>
+                <!-- <th scope="row">{{i.id}}</th> -->
+                <td>{{i.name}}</td>
+                <td>{{i.stand}}</td>
+                <td>{{i.Regno}}</td>
+                <td>{{i.tamil}}</td>
+                <td>{{i.science}}</td>
+                <td>{{i.Maths}}</td>
+                <td>{{i.Social}}</td>
+                <td>{{i.English}}</td>
+                <td><a href="{% url 'update_mark' i.Regno %}" class="btn btn-warning btn-sm"> Update</a></td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+</div>
+
+{% endblock content%}
